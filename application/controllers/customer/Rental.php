@@ -23,19 +23,20 @@ class Rental extends CI_Controller{
 
   public function tambah_aksi_rental()
   {  
+    
     $data = [
       'id_customer'           => $this->session->userdata('id_customer'),
-      'id_mobil'              => htmlspecialchars($this->input->post('id_mobil')),
-      'tanggal_rental'        => htmlspecialchars($this->input->post('tanggal_rental')),
-      'tanggal_kembali'       => htmlspecialchars($this->input->post('tanggal_kembali')),
-      'tanggal_kembali'       => htmlspecialchars($this->input->post('tanggal_kembali')),
-      'denda'                 => htmlspecialchars($this->input->post('denda')),
-      'harga'                 => htmlspecialchars($this->input->post('harga')),
+      'id_mobil'              => htmlspecialchars($this->input->post('id_mobil',true)),
+      'tanggal_rental'        => htmlspecialchars($this->input->post('tanggal_rental',true)),
+      'tanggal_kembali'       => htmlspecialchars($this->input->post('tanggal_kembali',true)),
+      'tanggal_kembali'       => htmlspecialchars($this->input->post('tanggal_kembali',true)),
+      'denda'                 => htmlspecialchars($this->input->post('denda',true)),
+      'harga'                 => htmlspecialchars($this->input->post('harga',true)),
       'tanggal_pengembalian'  => '-',
       'status_rental'         => 'Belum Selesai',
       'status_pengembalian'   => 'Belum kembali'
     ];
-
+    
     $this->rental_model->insert_data($data,'transaksi');
 
     $status  = array(
@@ -43,7 +44,7 @@ class Rental extends CI_Controller{
     );
 
     $id = array(
-      'id_mobil' => 'id_mobil'
+      'id_mobil' => $data['id_mobil']
     );
     $this->rental_model->update_data('mobil',$status,$id);
 

@@ -38,8 +38,8 @@ class Transaksi extends CI_Controller{
     $id = $this->input->post('id_rental');
     $bukti_pembayaran     = $_FILES['bukti_pembayaran']['name'];
     if($bukti_pembayaran){
-      $config ['upload_path'] = './assets/upload';
-      $config ['allowed_types'] = 'jpg|png|jpeg';
+      $config ['upload_path'] = './assets/upload_transaksi/bukti_bayar';
+      $config ['allowed_types'] = 'jpg|png|jpeg|pdf';
 
       $this->load->library('upload',$config);
       

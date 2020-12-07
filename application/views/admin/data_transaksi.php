@@ -1,5 +1,5 @@
 <div id="layoutSidenav_content">
-	<main>
+	<main class="card mx-auto" style="margin-top: 50px; margin-bottom:50px; width: 90%">
 		<div class="container-fluid">
 			<h1 class="mt-4">Data Transaksi</h1>
 			<ol class="breadcrumb mb-4">
@@ -39,7 +39,7 @@
                   <th>Status Rental</th>
                   <th>Status Pengembalian</th>
                   <th>Cek Pembayaran</th>
-                  <th >Aksi</th>
+                  <th class="text-center pl-3" >Aksi</th>
                 </tr>
               </thead>
               <tbody>
