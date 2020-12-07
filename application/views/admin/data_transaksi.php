@@ -1,6 +1,6 @@
 <div id="layoutSidenav_content">
-	<main class="card mx-auto" style="margin-top: 50px; margin-bottom:50px; width: 90%">
-		<div class="container-fluid">
+	
+		<div class="container">
 			<h1 class="mt-4">Data Transaksi</h1>
 			<ol class="breadcrumb mb-4">
 					<li class="breadcrumb-item active">Tanggal : <?= date("d F Y");;?></li>
@@ -29,7 +29,7 @@
                 <tr>
                   <th>No</th>
                   <th>Nama Customer</th>
-                  <th>Mobil</th>
+                  <th style="width:300px">Mobil</th>
                   <th>Tgl. rental</th>
                   <th>tgl. Kembali</th>
                   <!-- <th>Harga/hari</th>
@@ -83,14 +83,14 @@
                         <a class="btn btn-sm btn-success" rel="stylesheet" href="<?= base_url('admin/transaksi/pembayaran/'.$t->id_rental);?>"><i class="fas fa-check-circle"></i></a>
                       <?php endif; ?>
                     </td>
-                    <td>
+                    <td style="width:300px">
                       <?php
                         if($t->status == "1"){
                           echo "-";
                         }else{?>
                         <div class="row">
-                          <a class="btn btn-sm btn-success" rel="stylesheet" href="<?= base_url('admin/transaksi/transaksi_selesai/'.$t->id_rental);?>"><i class="fa fa-check"></i></a>
-                          <a class="btn btn-sm btn-danger" rel="stylesheet" href="<?= base_url('admin/transaksi/batal_transaksi/'.$t->id_rental);?>"><i class="fa fa-times"></i></a>
+                          <a class="btn btn-sm btn-success ml-3" rel="stylesheet" href="<?= base_url('admin/transaksi/transaksi_selesai/'.$t->id_rental);?>"><i class="fa fa-edit"></i></a>
+                          <a class="btn btn-sm btn-danger ml-2" rel="stylesheet" href="<?= base_url('admin/transaksi/batal_transaksi/'.$t->id_rental);?>"><i class="fa fa-trash"></i></a>
                         </div>
                       <?php }?>
                     </td>
@@ -102,7 +102,6 @@
 				</div>
 			</div>
 		</div>
-	</main>
 	<footer class="py-4 bg-light mt-auto">
 		<div class="container-fluid">
 			<div class="d-flex align-items-center justify-content-between small">
