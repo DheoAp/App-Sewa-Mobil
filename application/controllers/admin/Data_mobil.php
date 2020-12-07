@@ -51,18 +51,21 @@ class Data_mobil extends CI_Controller{
     if($this->form_validation->run() == false){
       $this->tambah_mobil();
     }else{
-      $kode_type  = $this->input->post('kode_type');
-      $merk  = $this->input->post('merk');
-      $no_plat    = $this->input->post('no_plat');
-      $warna      = $this->input->post('warna');
-      $tahun      = $this->input->post('tahun');
-      $status      = $this->input->post('status');
-      $harga      = $this->input->post('harga');
-      $denda      = $this->input->post('denda');
-      $kapasitas  = $this->input->post('kapasitas');
-      $gambar     = $_FILES['gambar']['name'];
-      if($gambar=''){}else{
-        $config ['upload_path'] = './assets/upload';
+      
+      $data = [
+        'kode_type' => htmlspecialchars($this->input->post('kode_type',true)),
+        'merk' => htmlspecialchars($this->input->post('merk',true)),
+        'no_plat' => htmlspecialchars($this->input->post('no_plat',true)),
+        'warna' => htmlspecialchars($this->input->post('warna',true)),
+        'tahun' => htmlspecialchars($this->input->post('tahun',true)),
+        'status' => htmlspecialchars($this->input->post('status',true)),
+        'harga' => htmlspecialchars($this->input->post('harga',true)),
+        'denda' => htmlspecialchars($this->input->post('denda',true)),
+        'kapasitas' => htmlspecialchars($this->input->post('kapasitas',true)),
+        'gambar' =>  $_FILES['gambar']['name'],
+      ];
+      if($data['gambar']=''){}else{
+        $config ['upload_path'] = './assets/upload/';
         $config ['allowed_types'] = 'jpg|png|jpeg';
         $config['max_size']             = 2400; // Dalam KB
         $config['max_width']            = 2024;
@@ -70,25 +73,12 @@ class Data_mobil extends CI_Controller{
 
         $this->load->library('upload',$config);
         // jika gagal di upload
-        if(!$this->upload->do_upload('gambar')){
+        if(!$this->upload->do_upload('gambar')){  
           echo "Gambar mobil gagal diupload";
         }else{
-          $gambar = $this->upload->data('file_name');
+          $data['gambar'] = $this->upload->data('file_name');
         }
       }
-      // masukan data ke array
-      $data = array(
-        'kode_type' => $kode_type,
-        'merk'      => $merk,
-        'no_plat'   => $no_plat,
-        'tahun'     => $tahun,
-        'warna'     => $warna,
-        'status'    => $status,
-        'harga'     => $harga,
-        'denda'     => $denda,
-        'kapasitas' => $kapasitas,
-        'gambar'    => $gambar
-      );
 
       // Masukaan data ke dalam table mobil
       $this->rental_model->insert_data($data,'mobil');
