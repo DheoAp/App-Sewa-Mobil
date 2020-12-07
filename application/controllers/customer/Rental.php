@@ -29,6 +29,8 @@ class Rental extends CI_Controller{
       'tanggal_rental'        => htmlspecialchars($this->input->post('tanggal_rental')),
       'tanggal_kembali'       => htmlspecialchars($this->input->post('tanggal_kembali')),
       'tanggal_kembali'       => htmlspecialchars($this->input->post('tanggal_kembali')),
+      'denda'                 => htmlspecialchars($this->input->post('denda')),
+      'harga'                 => htmlspecialchars($this->input->post('harga')),
       'tanggal_pengembalian'  => '-',
       'status_rental'         => 'Belum Selesai',
       'status_pengembalian'   => 'Belum kembali'
