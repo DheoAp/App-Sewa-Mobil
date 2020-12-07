@@ -31,7 +31,7 @@ class Rental extends CI_Controller{
       'tanggal_kembali'       => htmlspecialchars($this->input->post('tanggal_kembali')),
       'tanggal_pengembalian'  => '-',
       'status_rental'         => 'Belum Selesai',
-      'status_pengembalian'   => ''
+      'status_pengembalian'   => 'Belum kembali'
     ];
 
     $this->rental_model->insert_data($data,'transaksi');
