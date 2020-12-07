@@ -111,7 +111,7 @@ class Transaksi extends CI_Controller{
 
     $this->rental_model->update_data('mobil',$data2,$where2);
     $this->rental_model->delete_data($where,'transaksi');
-    $this->session->set_flashdata('pesan','Pesan Berhasil di batalkan');
+    $this->session->set_flashdata('pesan','Transaksi Berhasil di hapus');
     redirect('admin/transaksi');
   }
 } // akhir class
