@@ -33,7 +33,7 @@ class Auth extends CI_Controller{
       // Jika email(akun) sudah terdaftar
       if(password_verify($password,$user['password'])){
         $data =[
-          'id_customer' => $user['id_customer'],
+          // 'id_customer' => $user['id_customer'],
           'nama' => $user['nama'],
           'email' => $user['email'],
           'role_id' => $user['role_id'],
