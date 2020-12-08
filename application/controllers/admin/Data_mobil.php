@@ -107,16 +107,18 @@ class Data_mobil extends CI_Controller{
     if($this->form_validation->run() == false){
       redirect('admin/update_mobil');
     }else{
-      $id_mobil   = $this->input->post('id_mobil');
-      $kode_type  = $this->input->post('kode_type');
-      $merk       = $this->input->post('merk');
-      $no_plat    = $this->input->post('no_plat');
-      $warna      = $this->input->post('warna');
-      $tahun      = $this->input->post('tahun');
-      $status     = $this->input->post('status');
-      $harga      = $this->input->post('harga');
-      $denda      = $this->input->post('denda');
-      $kapasitas  = $this->input->post('kapasitas');
+      $data = [
+        'id_mobil' => htmlspecialchars($this->input->post('id_mobil',true)),
+        'kode_type' => htmlspecialchars($this->input->post('kode_type',true)),
+        'merk' => htmlspecialchars($this->input->post('merk',true)),
+        'no_plat' => htmlspecialchars($this->input->post('no_plat',true)),
+        'warna' => htmlspecialchars($this->input->post('warna',true)),
+        'tahun' => htmlspecialchars($this->input->post('tahun',true)),
+        'status' => htmlspecialchars($this->input->post('status',true)),
+        'harga' => htmlspecialchars($this->input->post('harga',true)),
+        'denda' => htmlspecialchars($this->input->post('denda',true)),
+        'kapasitas' => htmlspecialchars($this->input->post('kapasitas',true)),
+      ];
       $gambar     = $_FILES['gambar']['name'];
       if($gambar){
         $config ['upload_path'] = './assets/upload';
@@ -131,20 +133,9 @@ class Data_mobil extends CI_Controller{
           echo $this->upload->display_errors();
         }
       } 
-      // masukan data ke array
-      $data = array(
-        'kode_type' => $kode_type,
-        'merk'      => $merk,
-        'no_plat'   => $no_plat,
-        'tahun'     => $tahun,
-        'warna'     => $warna,
-        'status'    => $status,
-        'harga'     => $harga,
-        'denda'     => $denda,
-        'kapasitas' => $kapasitas
-      );
+
       $where = array(
-        'id_mobil' => $id_mobil
+        'id_mobil' => $data['id_mobil']
       );
 
       // Masukaan data ke dalam table mobil
@@ -178,7 +169,7 @@ class Data_mobil extends CI_Controller{
 
     $this->rental_model->delete_data($where,'mobil');
     $this->session->set_flashdata('pesan_hapus','Data berhasil dihapus');
-    redirect('admin/data_mobil');git 
+    redirect('admin/data_mobil');
 
   }
 
