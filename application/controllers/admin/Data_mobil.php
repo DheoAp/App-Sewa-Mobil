@@ -169,9 +169,16 @@ class Data_mobil extends CI_Controller{
   {
     $where = array('id_mobil' => $id);
 
+    // Proses hapus gmabar 
+    $this->db->where('id_mobil',$id);
+    $query = $this->db->get('mobil');
+    $row = $query->row();
+    unlink("./assets/upload/$row->gambar");
+    //End
+
     $this->rental_model->delete_data($where,'mobil');
     $this->session->set_flashdata('pesan_hapus','Data berhasil dihapus');
-    redirect('admin/data_mobil');
+    redirect('admin/data_mobil');git 
 
   }
 
