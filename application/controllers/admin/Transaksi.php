@@ -54,7 +54,7 @@ class Transaksi extends CI_Controller{
   {
     $this->load->helper('download');
     $filePembayaran = $this->rental_model->downloadPembayaran($id);
-    $file = 'assets/upload_transaksi/bukti_bayar/'.$filePembayaran['bukti_pembayaran'];
+    $file = 'assets/bukti_bayar/'.$filePembayaran['bukti_pembayaran'];
     force_download($file, NULL);
   }
 
