@@ -32,9 +32,9 @@
                   <th style="width:300px">Mobil</th>
                   <th>Tgl. rental</th>
                   <th>tgl. Kembali</th>
-                  <!-- <th>Harga/hari</th>
+                  <th>Harga/hari</th>
                   <th>Denda</th>
-                  <th>Total Denda</th> -->
+                  <th>Total Denda</th>
                   <th>Tgl. Dikembalikan</th>
                   <th>Status Rental</th>
                   <th>Status Pengembalian</th>
@@ -50,9 +50,9 @@
                     <td><?= $t->merk;?></td>
                     <td><?= date('d/m/Y',strtotime($t->tanggal_rental));?></td>
                     <td><?= date('d/m/Y',strtotime($t->tanggal_kembali));?></td>
-                    <!-- <td>Rp. <?= number_format($t->harga,0,',','.');?></td>
+                    <td>Rp. <?= number_format($t->harga,0,',','.');?></td>
                     <td>Rp. <?= number_format($t->denda,0,',','.');?></td>
-                    <td>Rp. <?= number_format($t->total_denda,0,',','.');?></td> -->
+                    <td>Rp. <?= number_format($t->total_denda,0,',','.');?></td>
                     <td>
                       <?php
                         if($t->tanggal_pengembalian == "0000-00-00"){
