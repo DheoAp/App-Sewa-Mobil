@@ -23,17 +23,7 @@
                     <tr>
                       <td>Type Mobil</td>
                       <td>
-                        <?php
-                          if($d->kode_type == "SDN"){
-                            echo "Sedan";
-                          }elseif($d->kode_type == "HTB"){
-                            echo "Hatchback";
-                          }elseif($d->kode_type == "MPV") {
-                            echo "Multi Purpose Vechile";
-                          }else {
-                            echo "<span class='text-danger'>Type Mobil Belum Terdaftar</span>";
-                          }
-                        ?>
+                        <?= $d->kode_type;?>
                       </td>
                     </tr>
                     <tr>
