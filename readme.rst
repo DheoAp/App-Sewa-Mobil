@@ -1,6 +1,10 @@
 ==== Demo Program ====
 https://www.youtube.com/watch?v=wYSdUqD8tuI&feature=emb_logo
 
+Admin Login : 
+user: admin@gmail.com 
+password : admin
+
 ###################
 What is CodeIgniter
 ###################
